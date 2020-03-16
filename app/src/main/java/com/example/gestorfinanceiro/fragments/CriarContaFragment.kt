@@ -36,7 +36,7 @@ class CriarContaFragment : Fragment() {
         botao_criar.setOnClickListener {
             if(editText_nome.text.toString().isNullOrBlank() || editText_senha.text.toString().isNullOrBlank()
                 || editText_cpf.text.toString().isNullOrBlank()){
-                Toast.makeText(activity?.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity?.baseContext, "Preencha todos campos!", Toast.LENGTH_LONG).show()
             }
             else{
                 usuarioViewModel!!.bancoDeUsuarios!!.addUsuario(
