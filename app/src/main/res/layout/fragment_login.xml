@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editText_nome" />
 
         <Button
-            android:id="@+id/botao_recuperar"
+            android:id="@+id/botao_logar"
             style="@style/ButtonStyle"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
