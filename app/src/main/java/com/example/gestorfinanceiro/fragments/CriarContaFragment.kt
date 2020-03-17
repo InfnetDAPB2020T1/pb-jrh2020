@@ -44,7 +44,7 @@ class CriarContaFragment : Fragment() {
                     editText_senha.text.toString(),
                     editText_cpf.text.toString())
                 Toast.makeText(activity?.baseContext, "Conta criada!", Toast.LENGTH_LONG).show()
-                usuarioViewModel!!.bancoDeUsuarios.debug()
+                usuarioViewModel!!.bancoDeUsuarios!!.debug()
 
             }
 
