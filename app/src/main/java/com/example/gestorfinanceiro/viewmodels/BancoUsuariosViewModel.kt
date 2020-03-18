@@ -5,6 +5,6 @@ import com.example.gestorfinanceiro.entidades.BancoUsuarios
 
 class BancoUsuariosViewModel : ViewModel() {
 
-    var bancoDeUsuarios : BancoUsuarios? = null
+    var bancoDeUsuarios : BancoUsuarios? = BancoUsuarios()
 
 }

@@ -39,8 +39,11 @@ class LoginFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "Usuario nao encontrado", Toast.LENGTH_LONG).show()
             }
             else{
-                if(!usuariosViewModel!!.bancoDeUsuarios!!.autentica(editText_nome.text.toString(), editText_senha.text.toString())){
+                if(usuariosViewModel!!.bancoDeUsuarios!!.autentica(editText_nome.text.toString(), editText_senha.text.toString())){
                     Toast.makeText(activity!!.baseContext, "Login feito com sucesso!", Toast.LENGTH_LONG).show()
+                }
+                else{
+                    Toast.makeText(activity!!.baseContext, "Senha incorreta", Toast.LENGTH_LONG).show()
                 }
             }
         }

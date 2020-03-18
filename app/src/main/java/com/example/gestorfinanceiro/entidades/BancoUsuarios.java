@@ -14,7 +14,7 @@ public class BancoUsuarios {
 
     public Usuario getUser(String login){
         for (Usuario u: bancoDeUsuarios) {
-            if (u.getLogin() == login) {
+            if (u.getLogin().equals(login)) {
                 return u;
             }
         }
@@ -23,8 +23,8 @@ public class BancoUsuarios {
 
     public boolean autentica(String login, String senha){
         for (Usuario u: bancoDeUsuarios) {
-            if (u.getLogin() == login) {
-                if (u.getSenha() == senha){
+            if (u.getLogin().equals(login)) {
+                if (u.getSenha().equals(senha)){
                     return true;
                 }
             }
@@ -34,7 +34,7 @@ public class BancoUsuarios {
 
     public boolean checkUser(String login){
         for (Usuario u: bancoDeUsuarios) {
-            if (u.getLogin() == login) {
+            if (u.getLogin().equals(login)) {
                 return true;
             }
         }
