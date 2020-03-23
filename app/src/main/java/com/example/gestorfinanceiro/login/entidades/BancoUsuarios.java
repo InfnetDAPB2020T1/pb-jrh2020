@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.entidades;
+package com.example.gestorfinanceiro.login.entidades;
 
 import java.util.ArrayList;
 

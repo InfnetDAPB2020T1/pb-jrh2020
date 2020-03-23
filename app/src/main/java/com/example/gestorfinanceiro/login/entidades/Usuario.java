@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.entidades;
+package com.example.gestorfinanceiro.login.entidades;
 
 public class Usuario {
 
@@ -37,5 +37,12 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String recuperarSenha(String login, String cpf){
+        if(this.login.equals(login) && this.cpf.equals(cpf)){
+            return senha;
+        }
+        return "Dados incorretos";
     }
 }

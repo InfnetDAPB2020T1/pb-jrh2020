@@ -31,6 +31,7 @@ class LoginFragment : Fragment() {
         activity?.let {
             usuariosViewModel = ViewModelProviders.of(it).get(BancoUsuariosViewModel::class.java)
         }
+
         botao_logar.setOnClickListener {
             if (editText_nome.text.toString().isNullOrBlank() || editText_senha.text.toString().isNullOrBlank()){
                 Toast.makeText(activity!!.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
