@@ -1,10 +1,11 @@
 package com.example.gestorfinanceiro.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.example.gestorfinanceiro.login.entidades.*
+import com.example.gestorfinanceiro.entidades.BancoUsuarios
 
 class BancoUsuariosViewModel : ViewModel() {
 
-    var bancoDeUsuarios : BancoUsuarios? = BancoUsuarios()
+    var bancoDeUsuarios : BancoUsuarios? =
+        BancoUsuarios()
 
 }

@@ -1,8 +1,9 @@
-package com.example.gestorfinanceiro.login.entidades;
+package com.example.gestorfinanceiro.entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BancoUsuarios {
+public class BancoUsuarios implements Serializable {
 
     private ArrayList<Usuario> bancoDeUsuarios = new ArrayList<>();
 

@@ -14,8 +14,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         botao_navegador.setupWithNavController(findNavController(R.id.fragment))
-        var usuarioViewModel = ViewModelProviders.of(this).get(BancoUsuariosViewModel::class.java)
-
 
     }
 }

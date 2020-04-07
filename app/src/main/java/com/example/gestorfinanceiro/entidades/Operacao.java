@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.gastos.entidades;
+package com.example.gestorfinanceiro.entidades;
 
 public class Operacao {
     private Integer valor;

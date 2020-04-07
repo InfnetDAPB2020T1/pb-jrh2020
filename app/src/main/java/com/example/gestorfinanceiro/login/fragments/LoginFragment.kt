@@ -1,7 +1,6 @@
 package com.example.gestorfinanceiro.fragments
 
-import android.content.Context
-import android.net.Uri
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import com.example.gestorfinanceiro.OperacoesActivity
 
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.viewmodels.BancoUsuariosViewModel
@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
         activity?.let {
             usuariosViewModel = ViewModelProviders.of(it).get(BancoUsuariosViewModel::class.java)
         }
-
+        var intent = Intent(activity!!.baseContext, OperacoesActivity::class.java)
         botao_logar.setOnClickListener {
             if (editText_nome.text.toString().isNullOrBlank() || editText_senha.text.toString().isNullOrBlank()){
                 Toast.makeText(activity!!.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
@@ -41,7 +41,9 @@ class LoginFragment : Fragment() {
             }
             else{
                 if(usuariosViewModel!!.bancoDeUsuarios!!.autentica(editText_nome.text.toString(), editText_senha.text.toString())){
-                    Toast.makeText(activity!!.baseContext, "Login feito com sucesso!", Toast.LENGTH_LONG).show()
+                    intent.putExtra("usuario", usuariosViewModel!!.bancoDeUsuarios!!.getUser(editText_nome.text.toString()))
+                    startActivity(intent)
+
                 }
                 else{
                     Toast.makeText(activity!!.baseContext, "Senha incorreta", Toast.LENGTH_LONG).show()
