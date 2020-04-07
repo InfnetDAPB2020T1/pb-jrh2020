@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.gastos.adapters
+package com.example.gestorfinanceiro.operacoes.adapters
 
 import android.view.LayoutInflater
 import android.view.View

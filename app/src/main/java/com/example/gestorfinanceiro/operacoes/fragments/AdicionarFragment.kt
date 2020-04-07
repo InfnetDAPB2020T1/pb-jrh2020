@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.gastos.fragments
+package com.example.gestorfinanceiro.operacoes.fragments
 
 
 import android.os.Bundle
@@ -11,11 +11,8 @@ import androidx.navigation.fragment.findNavController
 
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.entidades.Usuario
-import com.example.gestorfinanceiro.gastos.viewmodels.UsuarioViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_operacoes.*
+import com.example.gestorfinanceiro.operacoes.viewmodels.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_adicionar.*
-import kotlinx.android.synthetic.main.fragment_adicionar.view.*
 
 class AdicionarFragment : Fragment() {
 

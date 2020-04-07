@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.gastos.viewmodels
+package com.example.gestorfinanceiro.operacoes.viewmodels
 
 import androidx.lifecycle.ViewModel
 import com.example.gestorfinanceiro.entidades.Usuario

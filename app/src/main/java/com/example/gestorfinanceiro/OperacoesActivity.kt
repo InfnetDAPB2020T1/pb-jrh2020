@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.gestorfinanceiro.gastos.viewmodels.UsuarioViewModel
+import com.example.gestorfinanceiro.operacoes.viewmodels.UsuarioViewModel
 import kotlinx.android.synthetic.main.activity_operacoes.*
 
 class   OperacoesActivity : AppCompatActivity() {

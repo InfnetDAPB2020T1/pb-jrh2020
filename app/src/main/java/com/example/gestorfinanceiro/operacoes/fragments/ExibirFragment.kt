@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.gastos.fragments
+package com.example.gestorfinanceiro.operacoes.fragments
 
 
 import android.os.Bundle
@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.entidades.Usuario
-import com.example.gestorfinanceiro.gastos.adapters.OperacaoAdapter
-import com.example.gestorfinanceiro.gastos.viewmodels.UsuarioViewModel
+import com.example.gestorfinanceiro.operacoes.adapters.OperacaoAdapter
+import com.example.gestorfinanceiro.operacoes.viewmodels.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_exibir.*
 
 /**
