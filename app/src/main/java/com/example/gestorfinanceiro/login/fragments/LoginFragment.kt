@@ -32,16 +32,16 @@ class LoginFragment : Fragment() {
             usuariosViewModel = ViewModelProviders.of(it).get(BancoUsuariosViewModel::class.java)
         }
         var intent = Intent(activity!!.baseContext, OperacoesActivity::class.java)
-        botao_logar.setOnClickListener {
-            if (editText_nome.text.toString().isNullOrBlank() || editText_senha.text.toString().isNullOrBlank()){
+        btn_Entrar.setOnClickListener {
+            if (edTxt_Usuario.text.toString().isNullOrBlank() || edTxt_Senha.text.toString().isNullOrBlank()){
                 Toast.makeText(activity!!.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
             }
-            if(!usuariosViewModel!!.bancoDeUsuarios!!.checkUser(editText_nome.text.toString())){
+            if(!usuariosViewModel!!.bancoDeUsuarios!!.checkUser(edTxt_Usuario.text.toString())){
                 Toast.makeText(activity!!.baseContext, "Usuario nao encontrado", Toast.LENGTH_LONG).show()
             }
             else{
-                if(usuariosViewModel!!.bancoDeUsuarios!!.autentica(editText_nome.text.toString(), editText_senha.text.toString())){
-                    intent.putExtra("usuario", usuariosViewModel!!.bancoDeUsuarios!!.getUser(editText_nome.text.toString()))
+                if(usuariosViewModel!!.bancoDeUsuarios!!.autentica(edTxt_Usuario.text.toString(), edTxt_Senha.text.toString())){
+                    intent.putExtra("usuario", usuariosViewModel!!.bancoDeUsuarios!!.getUser(edTxt_Usuario.text.toString()))
                     startActivity(intent)
 
                 }

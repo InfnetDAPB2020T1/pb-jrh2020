@@ -9,30 +9,30 @@
 
 
     <TextView
-        android:id="@+id/txtVwTitulo"
+        android:id="@+id/txtVw_Titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:textColor="#303F9F"
-        android:hint="Titulo"
+        android:hint="@string/txtvw_titulo"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtVwTexto"
+        android:id="@+id/txtVw_Texto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:textColor="#303F9F"
-        android:hint="Texto"
+        android:hint="@string/txtvw_texto"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVwTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVw_Titulo" />
 
 
 

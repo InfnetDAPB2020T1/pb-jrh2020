@@ -37,27 +37,27 @@ class ExibirFragment : Fragment() {
         }
         usuarioViewModel.usuario = activity?.intent!!.getSerializableExtra("usuario") as Usuario
         if(usuarioViewModel.navegador == 0){
-            btnRedirect.text = "Gastos"
+            btn_Redirect.text = "Gastos"
             var gastoAdapter = OperacaoAdapter(usuarioViewModel.usuario!!.gastos)
-            rcVwExibir.adapter = gastoAdapter
-            rcVwExibir.layoutManager = LinearLayoutManager(activity!!.baseContext)
+            rcVw_Exibir.adapter = gastoAdapter
+            rcVw_Exibir.layoutManager = LinearLayoutManager(activity!!.baseContext)
             txtVwTotal.text = "Total de gastos mensais: R$" + usuarioViewModel.usuario!!.gastosTotais
         }
         else{
-            btnRedirect.text = "Ganhos"
+            btn_Redirect.text = "Ganhos"
             var ganhoAdapter = OperacaoAdapter(usuarioViewModel.usuario!!.ganhos)
-            rcVwExibir.adapter = ganhoAdapter
-            rcVwExibir.layoutManager = LinearLayoutManager(activity!!.baseContext)
+            rcVw_Exibir.adapter = ganhoAdapter
+            rcVw_Exibir.layoutManager = LinearLayoutManager(activity!!.baseContext)
             txtVwTotal.text = "Total de ganhos mensais: R$" + usuarioViewModel.usuario!!.ganhosTotais
         }
-        btnRedirect.setOnClickListener {
+        btn_Redirect.setOnClickListener {
             if(usuarioViewModel.navegador == 0){
                 usuarioViewModel.navegador = 1
             }
             else{
                 usuarioViewModel.navegador = 0
             }
-             findNavController().navigate(R.id.exibirFragment)
+             findNavController().navigate(R.id.fragment_Exibir)
         }
 
 

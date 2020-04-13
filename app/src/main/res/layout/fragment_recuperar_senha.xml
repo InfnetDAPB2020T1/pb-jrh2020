@@ -26,7 +26,7 @@
             app:layout_constraintGuide_end="25dp" />
 
         <EditText
-            android:id="@+id/editText_nome"
+            android:id="@+id/edTxt_Usuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="320dp"
@@ -39,7 +39,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText_cpf"
+            android:id="@+id/edTxt_CPF"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -49,18 +49,18 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/editText_nome" />
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_Usuario" />
 
         <Button
-            android:id="@+id/botao_recuperar"
+            android:id="@+id/btn_Recuperar"
             style="@style/ButtonStyle"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="@string/recuperar_conta"
+            android:text="@string/button_esqueci_senha"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/editText_cpf" />
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_CPF" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

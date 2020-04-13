@@ -1,15 +1,21 @@
 <resources>
     <string name="app_name">Gestor Financeiro</string>
     <string name="usuario">Usuário</string>
-    <string name="senha">Senha</string>
-    <string name="entrar">Entrar</string>
-    <string name="esqueci_senha">Esqueci minha senha</string>
-    <string name="criar_conta">Crie sua conta</string>
-    <string name="recuperar_conta">Recuperar conta</string>
     <string name="cpf">CPF</string>
-    <string name="desc">Descrição</string>
-    <string name="valor">Valor</string>
-    <string name="adicionar">Adicionar</string>
+    <string name="senha">Senha</string>
+    <string name="button_entrar">Entrar</string>
+    <string name="fragment_login">Login</string>
+    <string name="fragment_criarConta">Criar Conta</string>
+    <string name="fragment_esqueci">Esqueci Senha</string>
+    <string name="button_criar_conta">Crie sua Conta</string>
+    <string name="button_esqueci_senha">Recuperar Conta</string>
+    <string name="navigation_adc">Adicionar Operação</string>
+    <string name="navigation_opr">Operações Mensais</string>
+    <string name="txtvw_titulo">Título</string>
+    <string name="txtvw_texto">Texto</string>
+    <string name="edTxt_descricao">Descrição</string>
+    <string name="edTxt_valor">Valor</string>
+    <string name="btn_adicionar">Adicionar</string>
 
 
 </resources>

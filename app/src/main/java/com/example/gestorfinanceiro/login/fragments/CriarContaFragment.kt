@@ -33,16 +33,16 @@ class CriarContaFragment : Fragment() {
 
         }
 
-        botao_criar.setOnClickListener {
-            if(editText_nome.text.toString().isNullOrBlank() || editText_senha.text.toString().isNullOrBlank()
-                || editText_cpf.text.toString().isNullOrBlank()){
+        btn_Crie_Conta.setOnClickListener {
+            if(edTxt_Usuario.text.toString().isNullOrBlank() || edTxt_Senha.text.toString().isNullOrBlank()
+                || edTxt_CPF.text.toString().isNullOrBlank()){
                 Toast.makeText(activity?.baseContext, "Preencha todos campos!", Toast.LENGTH_LONG).show()
             }
             else{
                 usuarioViewModel!!.bancoDeUsuarios!!.addUsuario(
-                    editText_nome.text.toString(),
-                    editText_senha.text.toString(),
-                    editText_cpf.text.toString())
+                    edTxt_Usuario.text.toString(),
+                    edTxt_Senha.text.toString(),
+                    edTxt_Senha.text.toString())
                 Toast.makeText(activity?.baseContext, "Conta criada!", Toast.LENGTH_LONG).show()
                 usuarioViewModel!!.bancoDeUsuarios!!.debug()
 

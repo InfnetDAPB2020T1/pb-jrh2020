@@ -14,9 +14,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcVw_Exibir"
-            android:layout_width="415dp"
-            android:layout_height="311dp"
+            android:layout_width="559dp"
+            android:layout_height="514dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.609"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
@@ -25,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="546dp" />
+            app:layout_constraintGuide_begin="726dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
@@ -39,11 +41,10 @@
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="70dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="184dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.553"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_Redirect"

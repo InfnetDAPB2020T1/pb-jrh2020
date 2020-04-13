@@ -32,34 +32,34 @@ class AdicionarFragment : Fragment() {
 
         }
         if(usuarioViewModel.navegador == 0){
-            btnAdd.text = "Adicionar gasto"
-            btnRedirect.text = "Gastos"
+            btn_Add.text = "Adicionar gasto"
+            btn_Redirect.text = "Gastos"
         }
         else{
-            btnAdd.text = "Adicionar ganho"
-            btnRedirect.text = "Ganhos"
+            btn_Add.text = "Adicionar ganho"
+            btn_Redirect.text = "Ganhos"
 
         }
         usuarioViewModel.usuario = activity?.intent!!.getSerializableExtra("usuario") as Usuario
         if(usuarioViewModel.navegador == 0){
-            btnAdd.setOnClickListener {
-                usuarioViewModel.usuario!!.addGasto(edTxtValor.text.toString().toInt(), edTxtTitle.text.toString())
+            btn_Add.setOnClickListener {
+                usuarioViewModel.usuario!!.addGasto(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
             }
         }
         else{
-            btnAdd.setOnClickListener {
-                usuarioViewModel.usuario!!.addGanho(edTxtValor.text.toString().toInt(), edTxtTitle.text.toString())
+            btn_Add.setOnClickListener {
+                usuarioViewModel.usuario!!.addGanho(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
             }
         }
 
-        btnRedirect.setOnClickListener {
+        btn_Redirect.setOnClickListener {
             if(usuarioViewModel.navegador == 0){
                 usuarioViewModel.navegador = 1
             }
             else{
                 usuarioViewModel.navegador = 0
             }
-            findNavController().navigate(R.id.adicionarFragment)
+            findNavController().navigate(R.id.fragment_Adicionar)
         }
 
 

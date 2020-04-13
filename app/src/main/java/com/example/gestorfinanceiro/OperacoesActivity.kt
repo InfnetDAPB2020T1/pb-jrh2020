@@ -16,7 +16,7 @@ class   OperacoesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operacoes)
         var usuarioViewModel = ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
-        gastos_nav.setupWithNavController(findNavController(R.id.fragment3))
+        navigation_op_adc.setupWithNavController(findNavController(R.id.fragment_operacoes_mensais))
     }
     var tmp = 0
     override fun onBackPressed() {

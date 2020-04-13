@@ -30,9 +30,9 @@ class RecuperarSenhaFragment : Fragment() {
         activity?.let {
             usuariosViewModel = ViewModelProviders.of(it).get(BancoUsuariosViewModel::class.java)
         }
-        botao_recuperar.setOnClickListener{
-            var login = editText_nome.text.toString()
-            var cpf = editText_cpf.text.toString()
+        btn_Recuperar.setOnClickListener{
+            var login = edTxt_Usuario.text.toString()
+            var cpf = edTxt_CPF.text.toString()
             if (login.isNullOrBlank() || cpf.isNullOrBlank()){
                 Toast.makeText(activity!!.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
             }

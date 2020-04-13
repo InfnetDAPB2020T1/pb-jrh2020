@@ -2,16 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/gastos_navigation"
-    app:startDestination="@id/exibirFragment">
+    android:id="@+id/navigation_op_adc"
+    app:startDestination="@id/fragment_Exibir">
 
     <fragment
-        android:id="@+id/exibirFragment"
+        android:id="@+id/fragment_Exibir"
         android:name="com.example.gestorfinanceiro.operacoes.fragments.ExibirFragment"
         android:label="fragment_exibir"
         tools:layout="@layout/fragment_exibir" />
     <fragment
-        android:id="@+id/adicionarFragment"
+        android:id="@+id/fragment_Adicionar"
         android:name="com.example.gestorfinanceiro.operacoes.fragments.AdicionarFragment"
         android:label="fragment_adicionar"
         tools:layout="@layout/fragment_adicionar" />

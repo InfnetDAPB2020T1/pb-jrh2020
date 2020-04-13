@@ -12,8 +12,8 @@ import java.util.ArrayList
 class OperacaoAdapter (val operacoes : ArrayList<Operacao>?) : RecyclerView.Adapter<OperacaoAdapter.GastoViewHolder>(){
 
     class GastoViewHolder(view : View): RecyclerView.ViewHolder(view) {
-        val titulo = view.txtVwTitulo
-        val texto = view.txtVwTexto
+        val titulo = view.txtVw_Titulo
+        val texto = view.txtVw_Texto
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GastoViewHolder {

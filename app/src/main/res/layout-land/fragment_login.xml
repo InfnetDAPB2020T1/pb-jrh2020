@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CriarContaFragment">
-
+    tools:context=".fragments.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/AppStyle"
@@ -30,7 +29,7 @@
             android:id="@+id/edTxt_Usuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="140dp"
             android:ems="10"
             android:hint="@string/usuario"
             android:inputType="textPersonName"
@@ -43,7 +42,7 @@
             android:id="@+id/edTxt_Senha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="@string/senha"
             android:inputType="numberPassword"
@@ -52,29 +51,17 @@
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_Usuario" />
 
-        <EditText
-            android:id="@+id/edTxt_CPF"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:hint="@string/cpf"
-            android:inputType="number"
+        <Button
+            android:id="@+id/btn_Entrar"
+            style="@style/ButtonStyle"
+            android:layout_width="718dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="35dp"
+            android:text="@string/button_entrar"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_Senha" />
-
-        <Button
-            android:id="@+id/btn_Crie_Conta"
-            style="@style/ButtonStyle"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/button_criar_conta"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/edTxt_CPF" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
