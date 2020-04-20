@@ -13,6 +13,7 @@ import com.example.gestorfinanceiro.OperacoesActivity
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.viewmodels.BancoUsuariosViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import java.lang.RuntimeException
 
 
 class LoginFragment : Fragment() {
@@ -30,6 +31,12 @@ class LoginFragment : Fragment() {
         var usuariosViewModel : BancoUsuariosViewModel? = null
         activity?.let {
             usuariosViewModel = ViewModelProviders.of(it).get(BancoUsuariosViewModel::class.java)
+        }
+        try{
+            usuariosViewModel!!.bancoDeUsuarios!!.addUsuario("a", "1", "1");
+        }
+        catch (ex : RuntimeException){
+
         }
         var intent = Intent(activity!!.baseContext, OperacoesActivity::class.java)
         btn_Entrar.setOnClickListener {

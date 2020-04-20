@@ -1,5 +1,7 @@
 package com.example.gestorfinanceiro.entidades;
 
+import com.example.gestorfinanceiro.excecoes.InvalidUserException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -10,15 +12,26 @@ public class Usuario implements Serializable {
     private ArrayList<Operacao> ganhos = new ArrayList<>();
     private ArrayList<Operacao> gastos = new ArrayList<>();
 
+
     private String cpf;
 
 
     public Usuario(String login, String senha, String cpf) {
+        if(login.length() > 20){
+            throw new InvalidUserException("Usuario maior que 20 caracteres");
+        }
+        if(senha.length() > 15){
+            throw new InvalidUserException("Senha maior que 15 caracteres");
+        }
+        if(cpf.length() > 11){
+            throw new InvalidUserException("CPF inválido");
+        }
         this.login = login;
         this.senha = senha;
         this.cpf = cpf;
 
     }
+
 
     public String getLogin() {
         return login;

@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.entidades.Usuario
+import com.example.gestorfinanceiro.excecoes.InvalidOperacaoException
+import com.example.gestorfinanceiro.excecoes.InvalidUserException
 import com.example.gestorfinanceiro.operacoes.viewmodels.UsuarioViewModel
 import kotlinx.android.synthetic.main.fragment_adicionar.*
+import java.lang.RuntimeException
 
 class AdicionarFragment : Fragment() {
 
@@ -43,15 +47,34 @@ class AdicionarFragment : Fragment() {
         usuarioViewModel.usuario = activity?.intent!!.getSerializableExtra("usuario") as Usuario
         if(usuarioViewModel.navegador == 0){
             btn_Add.setOnClickListener {
-                usuarioViewModel.usuario!!.addGasto(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
+                try{
+                    usuarioViewModel.usuario!!.addGasto(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
+                    edTxt_Valor.text = null
+                    edTxt_Descricao.text = null
+                    Toast.makeText(activity!!.baseContext, "Gasto adicionado", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.fragment_Exibir)
+                }
+                catch (ex : InvalidOperacaoException){
+                    Toast.makeText(activity!!.baseContext, ex.message, Toast.LENGTH_LONG).show()
+                }
             }
         }
         else{
             btn_Add.setOnClickListener {
-                usuarioViewModel.usuario!!.addGanho(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
+                try {
+                    usuarioViewModel.usuario!!.addGanho(
+                        edTxt_Valor.text.toString().toInt(),edTxt_Descricao.text.toString())
+                        edTxt_Valor.text = null
+                        edTxt_Descricao.text = null
+                        Toast.makeText(activity!!.baseContext, "Ganho adicionado", Toast.LENGTH_LONG).show()
+                        findNavController().navigate(R.id.fragment_Exibir)
+
+                }
+                catch (ex : InvalidOperacaoException){
+                    Toast.makeText(activity!!.baseContext, ex.message, Toast.LENGTH_LONG).show()
+                }
             }
         }
-
         btn_Redirect.setOnClickListener {
             if(usuarioViewModel.navegador == 0){
                 usuarioViewModel.navegador = 1
