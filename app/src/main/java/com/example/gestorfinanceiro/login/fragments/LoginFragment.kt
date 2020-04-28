@@ -8,9 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import androidx.room.Room
+import com.example.gestorfinanceiro.ACPActivity
 import com.example.gestorfinanceiro.OperacoesActivity
 
 import com.example.gestorfinanceiro.R
+import com.example.gestorfinanceiro.database.AppDataBase
 import com.example.gestorfinanceiro.viewmodels.BancoUsuariosViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 import java.lang.RuntimeException
@@ -28,34 +31,31 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var usuariosViewModel : BancoUsuariosViewModel? = null
-        activity?.let {
-            usuariosViewModel = ViewModelProviders.of(it).get(BancoUsuariosViewModel::class.java)
-        }
-        try{
-            usuariosViewModel!!.bancoDeUsuarios!!.addUsuario("a", "1", "1");
-        }
-        catch (ex : RuntimeException){
-
-        }
+        var db =
+            Room.databaseBuilder(activity!!.applicationContext, AppDataBase::class.java, "appDatabase.sql").allowMainThreadQueries().build()
         var intent = Intent(activity!!.baseContext, OperacoesActivity::class.java)
         btn_Entrar.setOnClickListener {
             if (edTxt_Usuario.text.toString().isNullOrBlank() || edTxt_Senha.text.toString().isNullOrBlank()){
                 Toast.makeText(activity!!.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
             }
-            if(!usuariosViewModel!!.bancoDeUsuarios!!.checkUser(edTxt_Usuario.text.toString())){
-                Toast.makeText(activity!!.baseContext, "Usuario nao encontrado", Toast.LENGTH_LONG).show()
-            }
             else{
-                if(usuariosViewModel!!.bancoDeUsuarios!!.autentica(edTxt_Usuario.text.toString(), edTxt_Senha.text.toString())){
-                    intent.putExtra("usuario", usuariosViewModel!!.bancoDeUsuarios!!.getUser(edTxt_Usuario.text.toString()))
-                    startActivity(intent)
-
+                if (edTxt_Usuario.text.toString().equals("admin") && edTxt_Senha.text.toString().equals("123")){
+                    var a_intent = Intent(activity!!.baseContext, ACPActivity::class.java)
+                    startActivity(a_intent)
                 }
                 else{
-                    Toast.makeText(activity!!.baseContext, "Senha incorreta", Toast.LENGTH_LONG).show()
+                    var user = db.usuarioDao().selectLogin(edTxt_Usuario.text.toString())
+                    var autentica : Boolean = user.senha.equals(edTxt_Senha.text.toString())
+                    if(autentica){
+                        intent.putExtra("usuario", edTxt_Usuario.text.toString())
+                        startActivity(intent)
+                    }
+                    else{
+                        Toast.makeText(activity!!.baseContext, "Dados incorretos", Toast.LENGTH_LONG).show()
+                    }
                 }
             }
+
         }
     }
 

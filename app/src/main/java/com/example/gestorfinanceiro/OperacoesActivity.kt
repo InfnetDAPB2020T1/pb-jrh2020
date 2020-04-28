@@ -15,7 +15,6 @@ class   OperacoesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_operacoes)
-        var usuarioViewModel = ViewModelProviders.of(this).get(UsuarioViewModel::class.java)
         navigation_op_adc.setupWithNavController(findNavController(R.id.fragment_operacoes_mensais))
     }
     var tmp = 0

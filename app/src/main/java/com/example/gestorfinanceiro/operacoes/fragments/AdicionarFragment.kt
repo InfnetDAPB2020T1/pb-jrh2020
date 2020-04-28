@@ -42,15 +42,26 @@ class AdicionarFragment : Fragment() {
         else{
             btn_Add.text = "Adicionar ganho"
             btn_Redirect.text = "Ganhos"
-
         }
-        usuarioViewModel.usuario = activity?.intent!!.getSerializableExtra("usuario") as Usuario
+        var mes_nav = usuarioViewModel.mes
+        txtVw_Mes.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
+        if(mes_nav == 0){
+            btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
+            btn_mProximo.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav+1).mes
+        }
+        else if(mes_nav == 11){
+            btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav-1).mes
+            btn_mProximo.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
+        }
+        else{
+            btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav-1).mes
+            btn_mProximo.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav+1).mes
+        }
         if(usuarioViewModel.navegador == 0){
             btn_Add.setOnClickListener {
                 try{
-                    usuarioViewModel.usuario!!.addGasto(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
-                    edTxt_Valor.text = null
-                    edTxt_Descricao.text = null
+                    usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).adicionarGasto(
+                        edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
                     Toast.makeText(activity!!.baseContext, "Gasto adicionado", Toast.LENGTH_LONG).show()
                     findNavController().navigate(R.id.fragment_Exibir)
                 }
@@ -62,10 +73,8 @@ class AdicionarFragment : Fragment() {
         else{
             btn_Add.setOnClickListener {
                 try {
-                    usuarioViewModel.usuario!!.addGanho(
+                    usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).adicionarGanho(
                         edTxt_Valor.text.toString().toInt(),edTxt_Descricao.text.toString())
-                        edTxt_Valor.text = null
-                        edTxt_Descricao.text = null
                         Toast.makeText(activity!!.baseContext, "Ganho adicionado", Toast.LENGTH_LONG).show()
                         findNavController().navigate(R.id.fragment_Exibir)
 
@@ -83,6 +92,28 @@ class AdicionarFragment : Fragment() {
                 usuarioViewModel.navegador = 0
             }
             findNavController().navigate(R.id.fragment_Adicionar)
+        }
+
+        btn_mProximo.setOnClickListener {
+            if (mes_nav == 11){
+                Toast.makeText(activity!!.baseContext, "Não mês posterior a dezembro", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                usuarioViewModel.incrementar_mes()
+                findNavController().navigate(R.id.fragment_Adicionar)
+            }
+
+
+        }
+        btn_mAnterior.setOnClickListener {
+            if (mes_nav == 0){
+                Toast.makeText(activity!!.baseContext, "Não mês anterior a janeiro", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                usuarioViewModel.decrementar_mes()
+                findNavController().navigate(R.id.fragment_Adicionar)
+            }
+
         }
 
 

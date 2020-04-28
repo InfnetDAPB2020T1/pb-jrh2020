@@ -3,7 +3,9 @@ package com.example.gestorfinanceiro.entidades;
 import com.example.gestorfinanceiro.excecoes.InvalidOperacaoException;
 import com.example.gestorfinanceiro.excecoes.InvalidUserException;
 
-public class Operacao {
+import java.io.Serializable;
+
+public class Operacao implements Serializable {
     private Integer valor;
     private String descricao;
 

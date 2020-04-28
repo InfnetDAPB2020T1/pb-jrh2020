@@ -10,46 +10,83 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/btn_Redirect"
+            style="@style/ButtonStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/edTxt_Descricao"
             android:layout_width="207dp"
             android:layout_height="47dp"
+            android:layout_marginTop="44dp"
             android:ems="10"
             android:hint="@string/edTxt_descricao"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Add"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtVw_Mes" />
 
         <EditText
             android:id="@+id/edTxt_Valor"
             android:layout_width="205dp"
             android:layout_height="44dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="@string/edTxt_valor"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Add"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_Descricao" />
 
         <Button
             android:id="@+id/btn_Add"
             style="@style/ButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="55dp"
+            android:layout_marginTop="104dp"
             android:text="@string/btn_adicionar"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_Valor" />
 
         <Button
-            android:id="@+id/btn_Redirect"
-            style="@style/ButtonStyle2"
-            android:layout_width="match_parent"
+            style="@style/ButtonStyle"
+
+            android:id="@+id/btn_mAnterior"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/edTxt_Valor"
+            android:layout_marginTop="28dp"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_Valor" />
+
+        <Button
+            android:id="@+id/btn_mProximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_Valor" />
+
+        <TextView
+            style="@style/TextStyle"
+            android:id="@+id/txtVw_Mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

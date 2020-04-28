@@ -42,11 +42,7 @@ public class BancoUsuarios implements Serializable {
         return false;
     }
 
-    public void debug(){
-        for (Usuario u:bancoDeUsuarios) {
-            System.out.println(u.getLogin());
-        }
-    }
+
 
 
 }

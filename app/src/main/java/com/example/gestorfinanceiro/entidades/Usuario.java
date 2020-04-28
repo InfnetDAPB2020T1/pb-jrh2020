@@ -1,18 +1,21 @@
 package com.example.gestorfinanceiro.entidades;
 
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import com.example.gestorfinanceiro.excecoes.InvalidUserException;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
+@Entity(tableName = "usuarios")
 public class Usuario implements Serializable {
-
+    @PrimaryKey(autoGenerate = true)
+    private Integer id = null;
     private String login;
     private String senha;
-    private ArrayList<Operacao> ganhos = new ArrayList<>();
-    private ArrayList<Operacao> gastos = new ArrayList<>();
-
-
+    @Ignore
+    private OperacoesMensais operacoesMensais = new OperacoesMensais();
     private String cpf;
 
 
@@ -32,6 +35,9 @@ public class Usuario implements Serializable {
 
     }
 
+    public OperacoesMensais getMensais() {
+        return operacoesMensais;
+    }
 
     public String getLogin() {
         return login;
@@ -63,35 +69,12 @@ public class Usuario implements Serializable {
         }
         return "Dados incorretos";
     }
-    public void addGanho(int valor, String descricao){
-        ganhos.add(new Operacao(valor, descricao));
-    }
-    public ArrayList<Operacao> getGanhos() {
-        return ganhos;
-    }
-    public double getGanhosTotais(){
-        double total = 0;
-        for (Operacao op: ganhos) {
-            total += op.getValor();
-        }
-        return total;
-    }
-    public void addGasto(int valor, String descricao){
-            gastos.add(new Operacao(valor, descricao));
-    }
-    public ArrayList<Operacao> getGastos() {
-        return gastos;
+
+    public Integer getId() {
+        return id;
     }
 
-    public double getGastosTotais(){
-        double total = 0;
-        for (Operacao op: gastos) {
-            total += op.getValor();
-        }
-
-        return total;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
-
-
 }

@@ -17,6 +17,14 @@
     <string name="edTxt_valor">Valor</string>
     <string name="btn_adicionar">Adicionar</string>
     <string name="exception_cpf_error">CPF inválido</string>
-
+    <string name="acp">Admin Control Panel</string>
+    <string name="id">Id</string>
+    <string name="novo_login">Novo login</string>
+    <string name="nova_senha">Nova senha</string>
+    <string name="novo_cpf">Novo CPF</string>
+    <string name="id_edit">ID</string>
+    <string name="editar_conta">Editar conta</string>
+    <string name="sair">Sair</string>
+    <string name="deletar">Deletar usuario</string>
 
 </resources>
