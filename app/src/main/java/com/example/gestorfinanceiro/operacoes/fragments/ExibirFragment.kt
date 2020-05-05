@@ -14,6 +14,7 @@ import androidx.room.Room
 
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.database.AppDataBase
+import com.example.gestorfinanceiro.entidades.Operacao
 import com.example.gestorfinanceiro.entidades.Usuario
 import com.example.gestorfinanceiro.operacoes.adapters.OperacaoAdapter
 import com.example.gestorfinanceiro.operacoes.viewmodels.UsuarioViewModel
@@ -43,6 +44,18 @@ class ExibirFragment : Fragment() {
         var userlogin = activity?.intent!!.getStringExtra("usuario")
         usuarioViewModel.usuario = db.usuarioDao().selectLogin(userlogin)
         var mes_nav = usuarioViewModel.mes
+        var lista_operacoes = db.operacaoDAO().selectOpByUserIdAndMonth(usuarioViewModel.usuario!!.id, mes_nav)
+        lista_operacoes.forEach {
+            if(it.valor < 0){
+                usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).gastos.add(it)
+            }
+            else{
+                usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).ganhos.add(it)
+
+            }
+        }
+        usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).parseGastos()
+
         txtVw_Mes.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
         if(mes_nav == 0){
             btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
@@ -81,7 +94,7 @@ class ExibirFragment : Fragment() {
         }
         btn_mProximo.setOnClickListener {
             if (mes_nav == 11){
-                Toast.makeText(activity!!.baseContext, "Não mês posterior a dezembro", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity!!.baseContext, "Não há mês posterior a dezembro", Toast.LENGTH_SHORT).show()
             }
             else{
                 usuarioViewModel.incrementar_mes()
@@ -92,7 +105,7 @@ class ExibirFragment : Fragment() {
         }
         btn_mAnterior.setOnClickListener {
             if (mes_nav == 0){
-                Toast.makeText(activity!!.baseContext, "Não mês anterior a janeiro", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity!!.baseContext, "Não há mês anterior a janeiro", Toast.LENGTH_SHORT).show()
             }
             else{
                 usuarioViewModel.decrementar_mes()

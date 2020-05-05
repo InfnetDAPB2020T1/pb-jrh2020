@@ -9,7 +9,7 @@ import com.example.gestorfinanceiro.entidades.Operacao
 import kotlinx.android.synthetic.main.gasto_recycle.view.*
 import java.util.ArrayList
 
-class OperacaoAdapter (val operacoes : ArrayList<Operacao>?) : RecyclerView.Adapter<OperacaoAdapter.GastoViewHolder>(){
+class OperacaoAdapter (val operacoes : MutableList<Operacao>?) : RecyclerView.Adapter<OperacaoAdapter.GastoViewHolder>(){
 
     class GastoViewHolder(view : View): RecyclerView.ViewHolder(view) {
         val titulo = view.txtVw_Titulo

@@ -28,12 +28,4 @@
         android:textColor="#FF3366"
         android:textIsSelectable="true" />
 
-    <ImageView
-        android:id="@+id/img_acp_manage"
-        style="@style/ButtonACP_edit"
-        android:layout_marginTop="5dp"
-        android:layout_width="2dp"
-        android:layout_height="8dp"
-        android:layout_weight="1" />
-
 </LinearLayout>

@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.room.Room
 
 import com.example.gestorfinanceiro.R
+import com.example.gestorfinanceiro.database.AppDataBase
+import com.example.gestorfinanceiro.entidades.Operacao
 import com.example.gestorfinanceiro.entidades.Usuario
 import com.example.gestorfinanceiro.excecoes.InvalidOperacaoException
 import com.example.gestorfinanceiro.excecoes.InvalidUserException
@@ -35,6 +38,10 @@ class AdicionarFragment : Fragment() {
             usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
 
         }
+        var db =
+            Room.databaseBuilder(activity!!.applicationContext, AppDataBase::class.java, "appDatabase.sql").allowMainThreadQueries().build()
+        var userlogin = activity?.intent!!.getStringExtra("usuario")
+        usuarioViewModel.usuario = db.usuarioDao().selectLogin(userlogin)
         if(usuarioViewModel.navegador == 0){
             btn_Add.text = "Adicionar gasto"
             btn_Redirect.text = "Gastos"
@@ -60,8 +67,8 @@ class AdicionarFragment : Fragment() {
         if(usuarioViewModel.navegador == 0){
             btn_Add.setOnClickListener {
                 try{
-                    usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).adicionarGasto(
-                        edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString())
+                    db.operacaoDAO().armazenarOp(Operacao(edTxt_Valor.text.toString().toInt()*-1, edTxt_Descricao.text.toString(),
+                        usuarioViewModel.usuario!!.id, mes_nav))
                     Toast.makeText(activity!!.baseContext, "Gasto adicionado", Toast.LENGTH_LONG).show()
                     findNavController().navigate(R.id.fragment_Exibir)
                 }
@@ -73,8 +80,8 @@ class AdicionarFragment : Fragment() {
         else{
             btn_Add.setOnClickListener {
                 try {
-                    usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).adicionarGanho(
-                        edTxt_Valor.text.toString().toInt(),edTxt_Descricao.text.toString())
+                        db.operacaoDAO().armazenarOp(Operacao(edTxt_Valor.text.toString().toInt(), edTxt_Descricao.text.toString(),
+                        usuarioViewModel.usuario!!.id, mes_nav))
                         Toast.makeText(activity!!.baseContext, "Ganho adicionado", Toast.LENGTH_LONG).show()
                         findNavController().navigate(R.id.fragment_Exibir)
 

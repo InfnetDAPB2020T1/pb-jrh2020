@@ -54,8 +54,8 @@ public class Operacoes implements Serializable {
     }
 
 
-    public void adicionarGanho(int valor, String descricao) {
-        ganhos.add(new Operacao(valor, descricao));
+    public void adicionarGanho(int valor, String descricao, int id, int mes) {
+        ganhos.add(new Operacao(valor, descricao, id, mes));
     }
     public void removerGanho(String descricao) {
         for (Operacao operacao : ganhos) {
@@ -66,8 +66,8 @@ public class Operacoes implements Serializable {
         }
     }
 
-    public void adicionarGasto(int valor, String descricao) {
-        gastos.add(new Operacao(valor, descricao));
+    public void adicionarGasto(int valor, String descricao, int id, int mes) {
+        gastos.add(new Operacao(valor, descricao, id, mes));
     }
     public void removerGasto(String descricao) {
         for (Operacao operacao : gastos) {
@@ -91,6 +91,12 @@ public class Operacoes implements Serializable {
             ganhos+= operacao.getValor();
         }
         return ganhos;
+    }
+
+    public void parseGastos(){
+        for (Operacao op : this.gastos) {
+            op.setValor(op.getValor()*-1);
+        }
     }
 
     public double getSaldo() {

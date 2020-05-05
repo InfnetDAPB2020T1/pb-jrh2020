@@ -5,9 +5,11 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.example.gestorfinanceiro.entidades.Usuario;
+import com.example.gestorfinanceiro.entidades.UsuarioEOperacao;
 
 import java.util.List;
 
@@ -43,6 +45,10 @@ public interface UsuarioDAO {
 
     @Query("SELECT * FROM usuarios WHERE id =:id")
     Usuario selectId(int id);
+
+    @Transaction
+    @Query("SELECT * FROM usuarios WHERE id =:id")
+    List<UsuarioEOperacao> selectAssociatedOps(int id);
 
 
 }
