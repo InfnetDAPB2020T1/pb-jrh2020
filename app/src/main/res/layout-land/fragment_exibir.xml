@@ -14,19 +14,23 @@
 
         <TextView
             android:id="@+id/txtVw_Mes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextStyle"
+            android:layout_width="162dp"
+            android:layout_height="26dp"
             android:layout_marginTop="12dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            android:text="@string/mes"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcVw_Exibir"
-            android:layout_width="363dp"
-            android:layout_height="246dp"
+            android:layout_width="338dp"
+            android:layout_height="197dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
@@ -42,15 +46,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="95dp" />
+            app:layout_constraintGuide_begin="152dp" />
 
         <TextView
             android:id="@+id/txtVwTotal"
             style="@style/TextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="184dp"
+            android:layout_width="425dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,17 +68,23 @@
 
         <Button
             android:id="@+id/btn_mAnterior"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="180dp"
+            android:text=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
 
         <Button
             android:id="@+id/btn_mProximo"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="16dp"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
 

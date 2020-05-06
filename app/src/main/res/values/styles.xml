@@ -19,7 +19,7 @@
         <item name="android:background">@color/colorLightBlue</item>
     </style>
 
-     <style name="MenuStyle">
+    <style name="MenuStyle">
         <item name="android:background">@color/colorGrey</item>
     </style>
     <style name="AppStyle">

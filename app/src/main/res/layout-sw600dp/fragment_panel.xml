@@ -42,8 +42,8 @@
             style="@style/TextStyle"
             android:layout_width="46dp"
             android:layout_height="21dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="44dp"
             android:text="@string/id"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +53,7 @@
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="280dp"
             android:layout_marginTop="40dp"
             android:text="@string/fragment_login"
             app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -97,3 +97,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+

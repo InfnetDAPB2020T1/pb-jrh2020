@@ -12,13 +12,42 @@
         android:layout_height="match_parent">
 
 
+        <Button
+            android:id="@+id/btn_Redirect"
+            style="@style/ButtonStyle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtVw_Mes"
+            android:layout_width="149dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/mes"
+            style="@style/TextStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
+
+        <TextView
+            android:id="@+id/txtVwTotal"
+            style="@style/TextStyle"
+            android:layout_width="316dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="108dp"
+            android:layout_marginEnd="104dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcVw_Exibir"
-            android:layout_width="559dp"
-            android:layout_height="514dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="350dp"
+            android:layout_height="292dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintHorizontal_bias="0.418"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
@@ -36,48 +65,27 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="163dp" />
 
-        <TextView
-            android:id="@+id/txtVwTotal"
-            style="@style/TextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="184dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_Redirect"
-            style="@style/ButtonStyle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <Button
             android:id="@+id/btn_mProximo"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="200dp"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rcVw_Exibir" />
 
         <Button
             android:id="@+id/btn_mAnterior"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="20dp"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rcVw_Exibir" />
 
-        <TextView
-            android:id="@+id/txtVw_Mes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="37dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

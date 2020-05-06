@@ -24,13 +24,14 @@
 
         <TextView
             android:id="@+id/txtVw_acpm_user"
+            style="@style/TextStyle"
             android:layout_width="313dp"
             android:layout_height="26dp"
             android:layout_marginTop="20dp"
             android:text=""
-            style="@style/TextStyle"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.107"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,14 +49,14 @@
 
         <TextView
             android:id="@+id/txtVw_acpm_cpf"
+            style="@style/TextStyle"
             android:layout_width="322dp"
             android:layout_height="29dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text=""
-            style="@style/TextStyle"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.285"
+            app:layout_constraintHorizontal_bias="0.143"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/txtVw_acpm_user" />
 
@@ -63,7 +64,7 @@
             android:id="@+id/edTxt_acpm_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="@string/novo_login"
             android:inputType="textPersonName"
@@ -75,7 +76,7 @@
             android:id="@+id/edTxt_acpm_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="@string/nova_senha"
             android:inputType="numberPassword"
@@ -87,7 +88,7 @@
             android:id="@+id/edTxt_acpm_cpf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="@string/novo_cpf"
             android:inputType="number"
@@ -97,26 +98,28 @@
 
         <Button
             android:id="@+id/btn_acpm_edit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/editar_conta"
             style="@style/ButtonStyle"
+            android:layout_width="730dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/editar_conta"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_acpm_cpf" />
 
         <Button
             android:id="@+id/btn_acpm_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/deletar"
             style="@style/ButtonStyle"
+            android:layout_width="730dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="3dp"
+            android:text="@string/deletar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_acpm_edit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+

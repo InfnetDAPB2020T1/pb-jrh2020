@@ -26,5 +26,6 @@
     <string name="editar_conta">Editar conta</string>
     <string name="sair">Sair</string>
     <string name="deletar">Deletar usuario</string>
+    <string name="mes">Janeiro</string>
 
 </resources>
