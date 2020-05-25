@@ -7,16 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProviders
-import androidx.room.Room
-import com.example.gestorfinanceiro.ACPActivity
-import com.example.gestorfinanceiro.OperacoesActivity
+import com.example.gestorfinanceiro.CategoriasActivity
 
 import com.example.gestorfinanceiro.R
-import com.example.gestorfinanceiro.database.AppDataBase
-import com.example.gestorfinanceiro.viewmodels.BancoUsuariosViewModel
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
-import java.lang.RuntimeException
 
 
 class LoginFragment : Fragment() {
@@ -31,32 +26,35 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var db =
-            Room.databaseBuilder(activity!!.applicationContext, AppDataBase::class.java, "appDatabase.sql").allowMainThreadQueries().build()
-        var intent = Intent(activity!!.baseContext, OperacoesActivity::class.java)
-        btn_Entrar.setOnClickListener {
-            if (edTxt_Usuario.text.toString().isNullOrBlank() || edTxt_Senha.text.toString().isNullOrBlank()){
-                Toast.makeText(activity!!.baseContext, "Preencha todos campos", Toast.LENGTH_LONG).show()
-            }
-            else{
-                if (edTxt_Usuario.text.toString().equals("admin") && edTxt_Senha.text.toString().equals("123")){
-                    var a_intent = Intent(activity!!.baseContext, ACPActivity::class.java)
-                    startActivity(a_intent)
-                }
-                else{
-                    var user = db.usuarioDao().selectLogin(edTxt_Usuario.text.toString())
-                    var autentica : Boolean = user.senha.equals(edTxt_Senha.text.toString())
-                    if(autentica){
+
+       btn_Entrar.setOnClickListener {
+            login()
+        }
+    }
+
+    fun login() {
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
+        try{
+            firebaseAuth.signInWithEmailAndPassword(edTxt_Usuario.text.toString(), edTxt_Senha.text.toString())
+                .addOnSuccessListener {
+                    if(it != null){
+                        val intent = Intent(activity?.baseContext, CategoriasActivity::class.java)
                         intent.putExtra("usuario", edTxt_Usuario.text.toString())
                         startActivity(intent)
+                        Toast.makeText(requireContext(), "Logado " + user!!.email, Toast.LENGTH_LONG).show()
+                    }else{
+                        Toast.makeText(requireContext(), "Deu null!", Toast.LENGTH_LONG).show()
                     }
-                    else{
-                        Toast.makeText(activity!!.baseContext, "Dados incorretos", Toast.LENGTH_LONG).show()
-                    }
+                }.addOnFailureListener{
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+
                 }
-            }
+        }catch (ex:Exception){
+            Toast.makeText(requireContext(), ex.message, Toast.LENGTH_LONG).show()
 
         }
+
     }
 
 }

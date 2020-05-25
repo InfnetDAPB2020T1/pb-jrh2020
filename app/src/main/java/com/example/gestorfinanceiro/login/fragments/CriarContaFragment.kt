@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.room.Room
 
 import com.example.gestorfinanceiro.R
-import com.example.gestorfinanceiro.database.AppDataBase
-import com.example.gestorfinanceiro.entidades.Usuario
-import com.example.gestorfinanceiro.viewmodels.BancoUsuariosViewModel
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_criar_conta.*
-import java.lang.RuntimeException
 
 
 class CriarContaFragment : Fragment() {
@@ -30,29 +27,38 @@ class CriarContaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var db =
-            Room.databaseBuilder(activity!!.applicationContext, AppDataBase::class.java, "appDatabase.sql").allowMainThreadQueries().build()
         btn_Crie_Conta.setOnClickListener {
-            if(edTxt_Usuario.text.toString().isNullOrBlank() || edTxt_Senha.text.toString().isNullOrBlank()
-                || edTxt_CPF.text.toString().isNullOrBlank()){
+            if(edTxt_Usuario.text.toString().isBlank() || edTxt_Senha.text.toString().isBlank()
+                || edTxt_CPF.text.toString().isBlank()){
                 Toast.makeText(activity?.baseContext, "Preencha todos campos!", Toast.LENGTH_LONG).show()
             }
             else{
                 try{
-                    db.usuarioDao().armazenar(Usuario(
-                        edTxt_Usuario.text.toString(),
-                        edTxt_Senha.text.toString(),
-                        edTxt_CPF.text.toString()
-                    ))
-                    Toast.makeText(activity?.baseContext, "Conta criada!", Toast.LENGTH_LONG).show()
+                    register().addOnSuccessListener {
+                        if(it != null){
+                            Toast.makeText(requireContext(), "Firebase sucess", Toast.LENGTH_LONG).show()
+                        }
+                        else{
+                            Toast.makeText(requireContext(), "Firebase null", Toast.LENGTH_LONG).show()
+
+                        }
+                    }.addOnFailureListener{
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                    }
                     findNavController().navigate(R.id.login_dest)
                 }
                 catch (ex : Throwable){
-                    Toast.makeText(activity!!.baseContext, ex.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity?.baseContext, ex.message, Toast.LENGTH_LONG).show()
                 }
 
             }
 
             }
+    }
+
+    fun register() : Task<AuthResult> {
+        return FirebaseAuth.getInstance()
+            .createUserWithEmailAndPassword(
+             edTxt_Usuario.text.toString(),  edTxt_Senha.text.toString())
     }
 }

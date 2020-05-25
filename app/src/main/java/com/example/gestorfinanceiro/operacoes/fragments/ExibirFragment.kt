@@ -15,15 +15,21 @@ import androidx.room.Room
 import com.example.gestorfinanceiro.R
 import com.example.gestorfinanceiro.database.AppDataBase
 import com.example.gestorfinanceiro.entidades.Operacao
-import com.example.gestorfinanceiro.entidades.Usuario
 import com.example.gestorfinanceiro.operacoes.adapters.OperacaoAdapter
-import com.example.gestorfinanceiro.operacoes.viewmodels.UsuarioViewModel
+import com.example.gestorfinanceiro.operacoes.tasks.SetupListTask
+import com.example.gestorfinanceiro.operacoes.tasks.SetupViewModelTask
+import com.example.gestorfinanceiro.operacoes.viewmodels.CategoriaViewModel
 import kotlinx.android.synthetic.main.fragment_exibir.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class ExibirFragment : Fragment() {
+    private var lista_operacoes = mutableListOf<Operacao>()
+
+    fun setList(list:MutableList<Operacao>){
+        lista_operacoes = list
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,84 +41,21 @@ class ExibirFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lateinit var usuarioViewModel:UsuarioViewModel
+        lateinit var categoriaViewModel:CategoriaViewModel
         activity?.let {
-            usuarioViewModel = ViewModelProviders.of(it).get(UsuarioViewModel::class.java)
+            categoriaViewModel = ViewModelProviders.of(it).get(CategoriaViewModel::class.java)
         }
-        var db =
-            Room.databaseBuilder(activity!!.applicationContext, AppDataBase::class.java, "appDatabase.sql").allowMainThreadQueries().build()
-        var userlogin = activity?.intent!!.getStringExtra("usuario")
-        usuarioViewModel.usuario = db.usuarioDao().selectLogin(userlogin)
-        var mes_nav = usuarioViewModel.mes
-        var lista_operacoes = db.operacaoDAO().selectOpByUserIdAndMonth(usuarioViewModel.usuario!!.id, mes_nav)
+        val categoria = activity?.intent!!.getStringExtra("nome")!!.toInt()
+        categoriaViewModel.categoria = SetupViewModelTask(requireContext(), categoria).execute().get()
+        lista_operacoes = SetupListTask(requireContext(), this, categoriaViewModel.categoria!!.id).execute().get()
         lista_operacoes.forEach {
-            if(it.valor < 0){
-                usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).gastos.add(it)
-            }
-            else{
-                usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).ganhos.add(it)
+            categoriaViewModel.categoria!!.operacoes.adicionarOperacao(it.valor, it.descricao, it.id)
+        }
+        var gastoAdapter = OperacaoAdapter(categoriaViewModel.categoria!!.operacoes.operacoes)
+        rcVw_Exibir.adapter = gastoAdapter
+        rcVw_Exibir.layoutManager = LinearLayoutManager(activity?.baseContext)
+        txtVwTotal.text = "Total mensal R$" + categoriaViewModel.categoria!!.operacoes.total
 
-            }
-        }
-        usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).parseGastos()
-
-        txtVw_Mes.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
-        if(mes_nav == 0){
-            btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
-            btn_mProximo.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav+1).mes
-        }
-        else if(mes_nav == 11){
-            btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav-1).mes
-            btn_mProximo.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).mes
-        }
-        else{
-            btn_mAnterior.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav-1).mes
-            btn_mProximo.text = usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav+1).mes
-        }
-        if(usuarioViewModel.navegador == 0){
-            btn_Redirect.text = "Gastos"
-            var gastoAdapter = OperacaoAdapter(usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).gastos)
-            rcVw_Exibir.adapter = gastoAdapter
-            rcVw_Exibir.layoutManager = LinearLayoutManager(activity!!.baseContext)
-            txtVwTotal.text = "Total de gastos mensais: R$" + usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).gastosTotais
-        }
-        else{
-            btn_Redirect.text = "Ganhos"
-            var ganhoAdapter = OperacaoAdapter(usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).ganhos)
-            rcVw_Exibir.adapter = ganhoAdapter
-            rcVw_Exibir.layoutManager = LinearLayoutManager(activity!!.baseContext)
-            txtVwTotal.text = "Total de ganhos mensais: R$" + usuarioViewModel.usuario!!.mensais.operacoesMensais.get(mes_nav).ganhosTotais
-        }
-        btn_Redirect.setOnClickListener {
-            if(usuarioViewModel.navegador == 0){
-                usuarioViewModel.navegador = 1
-            }
-            else{
-                usuarioViewModel.navegador = 0
-            }
-             findNavController().navigate(R.id.fragment_Exibir)
-        }
-        btn_mProximo.setOnClickListener {
-            if (mes_nav == 11){
-                Toast.makeText(activity!!.baseContext, "Não há mês posterior a dezembro", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                usuarioViewModel.incrementar_mes()
-                findNavController().navigate(R.id.fragment_Exibir)
-            }
-
-
-        }
-        btn_mAnterior.setOnClickListener {
-            if (mes_nav == 0){
-                Toast.makeText(activity!!.baseContext, "Não há mês anterior a janeiro", Toast.LENGTH_SHORT).show()
-            }
-            else{
-                usuarioViewModel.decrementar_mes()
-                findNavController().navigate(R.id.fragment_Exibir)
-            }
-
-        }
 
 
     }

@@ -12,26 +12,25 @@ import java.io.Serializable;
 public class Operacao implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private Integer id = null;
-    private Integer valor;
+    private Double valor;
     private String descricao;
     private Integer userOwnerId;
-    private Integer mes;
 
-    public Operacao(Integer valor, String descricao, Integer userOwnerId, Integer mes) {
+
+    public Operacao(Double valor, String descricao, Integer userOwnerId) {
         if(descricao.length() > 60){
             throw new InvalidOperacaoException("A descrição deve ter menos de 60 caracteres");
         }
         this.valor = valor;
         this.descricao = descricao;
         this.userOwnerId = userOwnerId;
-        this.mes = mes;
     }
 
-    public Integer getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Integer valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
@@ -59,11 +58,4 @@ public class Operacao implements Serializable {
         this.userOwnerId = userOwnerId;
     }
 
-    public Integer getMes() {
-        return mes;
-    }
-
-    public void setMes(Integer mes) {
-        this.mes = mes;
-    }
 }

@@ -1,10 +1,10 @@
 package com.example.gestorfinanceiro.operacoes.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.example.gestorfinanceiro.entidades.Usuario
+import com.example.gestorfinanceiro.entidades.Categoria
 
-class UsuarioViewModel : ViewModel() {
-    var usuario : Usuario? = null
+class CategoriaViewModel : ViewModel() {
+    var categoria : Categoria? = null
     var navegador = 0
     var mes = 0
 
@@ -14,4 +14,6 @@ class UsuarioViewModel : ViewModel() {
     fun decrementar_mes(){
         mes--
     }
+
+
 }

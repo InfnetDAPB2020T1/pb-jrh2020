@@ -12,67 +12,32 @@
         android:layout_height="match_parent">
 
 
-        <TextView
-            style="@style/TextStyle"
-            android:id="@+id/txtVw_Mes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/mes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_Redirect" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcVw_Exibir"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtVwTotal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtVw_Mes" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtVwTotal"
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rcVw_Exibir" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btn_Redirect"
-            style="@style/ButtonStyle2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            style="@style/ButtonStyle"
-            android:id="@+id/btn_mAnterior"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtVwTotal" />
-
-        <Button
-            style="@style/ButtonStyle"
-            android:id="@+id/btn_mProximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
-            android:text=""
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtVwTotal" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="100dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

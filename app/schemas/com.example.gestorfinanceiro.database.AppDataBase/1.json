@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dd63d1a0c1aaba96838155cdcbde7498",
+    "identityHash": "54685ac141e9c51c5c5302aabacb2d10",
     "entities": [
       {
-        "tableName": "usuarios",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `login` TEXT, `senha` TEXT, `cpf` TEXT)",
+        "tableName": "operacoes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `valor` REAL, `descricao` TEXT, `userOwnerId` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,21 +15,21 @@
             "notNull": false
           },
           {
-            "fieldPath": "login",
-            "columnName": "login",
+            "fieldPath": "valor",
+            "columnName": "valor",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "descricao",
+            "columnName": "descricao",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "senha",
-            "columnName": "senha",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "cpf",
-            "columnName": "cpf",
-            "affinity": "TEXT",
+            "fieldPath": "userOwnerId",
+            "columnName": "userOwnerId",
+            "affinity": "INTEGER",
             "notNull": false
           }
         ],
@@ -43,8 +43,8 @@
         "foreignKeys": []
       },
       {
-        "tableName": "operacoes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `valor` INTEGER, `descricao` TEXT, `userOwnerId` INTEGER, `mes` INTEGER)",
+        "tableName": "categorias",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` TEXT, `status` INTEGER, `mes` INTEGER)",
         "fields": [
           {
             "fieldPath": "id",
@@ -53,20 +53,14 @@
             "notNull": false
           },
           {
-            "fieldPath": "valor",
-            "columnName": "valor",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "descricao",
-            "columnName": "descricao",
+            "fieldPath": "nome",
+            "columnName": "nome",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "userOwnerId",
-            "columnName": "userOwnerId",
+            "fieldPath": "status",
+            "columnName": "status",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -90,7 +84,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dd63d1a0c1aaba96838155cdcbde7498')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '54685ac141e9c51c5c5302aabacb2d10')"
     ]
   }
 }

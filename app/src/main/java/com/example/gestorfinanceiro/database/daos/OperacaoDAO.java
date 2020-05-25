@@ -1,4 +1,4 @@
-package com.example.gestorfinanceiro.daos;
+package com.example.gestorfinanceiro.database.daos;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -34,6 +34,6 @@ public interface OperacaoDAO {
     @Query("SELECT * FROM operacoes WHERE id =:id")
     Operacao selectId(int id);
 
-    @Query("SELECT * FROM operacoes WHERE userOwnerId =:userOwnerId AND mes =:mes")
-    List<Operacao> selectOpByUserIdAndMonth(int userOwnerId, int mes);
+    @Query("SELECT * FROM operacoes WHERE userOwnerId =:userOwnerId")
+    List<Operacao> selectOpsByUserId(int userOwnerId);
 }
