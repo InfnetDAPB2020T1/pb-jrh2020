@@ -22,14 +22,15 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_weight="1"
-        android:src="@drawable/money"/>
+        android:src="@drawable/ic_detalhes_oper"
+       />
 
     <ImageView
         android:id="@+id/txtVw_ctg_edit"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_weight="1"
-        android:src="@drawable/manage"
-         />
+        android:src="@drawable/ic_edit_categ"
+       />
 
 </LinearLayout>

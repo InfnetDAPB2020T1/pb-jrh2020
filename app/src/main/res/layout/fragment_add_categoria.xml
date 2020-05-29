@@ -12,21 +12,42 @@
 
         <Button
             android:id="@+id/btn_gg"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
+            style="@style/ButtonStyle2"
+            android:text="@string/ganhos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btn_mAnterior"
+            style="@style/ButtonStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/mes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_gg" />
+
+        <Button
+            android:id="@+id/btn_mProximo"
+            style="@style/ButtonStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/mes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_gg" />
+
         <EditText
             android:id="@+id/edTxt_categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="132dp"
             android:ems="10"
-            android:hint="@string/nome"
+            android:hint="@string/nova_categoria"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,30 +58,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            style="@style/ButtonStyle"
             android:text="@string/nova_categoria"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_categoria" />
 
-        <Button
-            android:id="@+id/btn_mAnterior"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
-            android:text="Button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_AddCategoria" />
-
-        <Button
-            android:id="@+id/btn_mProximo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="28dp"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_AddCategoria" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

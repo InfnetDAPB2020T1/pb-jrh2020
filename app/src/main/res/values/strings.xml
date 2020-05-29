@@ -36,5 +36,7 @@
     <string name="suas_categorias">Suas categorias</string>
     <string name="nome">Nome</string>
     <string name="nova_categoria">Nova categoria</string>
+    <string name="ganhos">Ganhos</string>
+    <string name="gastos">Gastos</string>
 
 </resources>
