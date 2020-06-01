@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "54685ac141e9c51c5c5302aabacb2d10",
+    "identityHash": "a961cecd45b479146ab4fc182da4f975",
     "entities": [
       {
         "tableName": "operacoes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `valor` REAL, `descricao` TEXT, `userOwnerId` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `valor` REAL, `descricao` TEXT, `userOwnerId` INTEGER, `cotacao` REAL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -30,6 +30,12 @@
             "fieldPath": "userOwnerId",
             "columnName": "userOwnerId",
             "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cotacao",
+            "columnName": "cotacao",
+            "affinity": "REAL",
             "notNull": false
           }
         ],
@@ -84,7 +90,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '54685ac141e9c51c5c5302aabacb2d10')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a961cecd45b479146ab4fc182da4f975')"
     ]
   }
 }

@@ -13,13 +13,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 
 import com.example.gestorfinanceiro.R
+import com.example.gestorfinanceiro.api.CotacaoService
 import com.example.gestorfinanceiro.database.AppDataBase
+import com.example.gestorfinanceiro.entidades.Cotacao
 import com.example.gestorfinanceiro.entidades.Operacao
 import com.example.gestorfinanceiro.operacoes.adapters.OperacaoAdapter
 import com.example.gestorfinanceiro.operacoes.tasks.SetupListTask
 import com.example.gestorfinanceiro.operacoes.tasks.SetupViewModelTask
 import com.example.gestorfinanceiro.operacoes.viewmodels.CategoriaViewModel
 import kotlinx.android.synthetic.main.fragment_exibir.*
+import kotlinx.android.synthetic.main.fragment_exibir_categoria.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -45,11 +53,12 @@ class ExibirFragment : Fragment() {
         activity?.let {
             categoriaViewModel = ViewModelProviders.of(it).get(CategoriaViewModel::class.java)
         }
+
         val categoria = activity?.intent!!.getStringExtra("nome")!!.toInt()
         categoriaViewModel.categoria = SetupViewModelTask(requireContext(), categoria).execute().get()
         lista_operacoes = SetupListTask(requireContext(), this, categoriaViewModel.categoria!!.id).execute().get()
         lista_operacoes.forEach {
-            categoriaViewModel.categoria!!.operacoes.adicionarOperacao(it.valor, it.descricao, it.id)
+            categoriaViewModel.categoria!!.operacoes.adicionarOperacao(it.valor, it.descricao, it.id, it.cotacao)
         }
         var gastoAdapter = OperacaoAdapter(categoriaViewModel.categoria!!.operacoes.operacoes)
         rcVw_Exibir.adapter = gastoAdapter

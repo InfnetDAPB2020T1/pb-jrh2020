@@ -11,9 +11,16 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 
 import com.example.gestorfinanceiro.R
+import com.example.gestorfinanceiro.api.CotacaoService
 import com.example.gestorfinanceiro.categorias.tasks.MakeRecyclerViewTask
 import com.example.gestorfinanceiro.categorias.viewmodels.CategoriaViewModel
+import com.example.gestorfinanceiro.entidades.Cotacao
 import kotlinx.android.synthetic.main.fragment_exibir_categoria.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -35,6 +42,7 @@ class ExibirCategoriaFragment : Fragment() {
         activity?.let {
             categoriaViewModel = ViewModelProviders.of(it).get(CategoriaViewModel::class.java)
         }
+        getMoeda()
         var mes_nav = categoriaViewModel.mes
         MakeRecyclerViewTask(requireContext(), rcVw_Categoria, categoriaViewModel.navegador, mes_nav).execute()
         if (categoriaViewModel.navegador == true){
@@ -87,6 +95,28 @@ class ExibirCategoriaFragment : Fragment() {
                 findNavController().navigate(R.id.exibirCategoriaFragment)
             }
         }
+    }
+
+    fun getMoeda(){
+        var retrofit =
+            Retrofit.Builder().baseUrl("https://api.exchangeratesapi.io/").addConverterFactory(
+                GsonConverterFactory.create()).build()
+        retrofit.create(CotacaoService::class.java).converterMoeda().enqueue(object :
+            Callback<Cotacao> {
+            override fun onFailure(call: Call<Cotacao>, t: Throwable) {
+                Toast.makeText(requireContext(), t.message,Toast.LENGTH_LONG).show()
+            }
+
+            override fun onResponse(call: Call<Cotacao>, response: Response<Cotacao>) {
+                val dollar = response.body()!!.rates.get("BRL")
+                val formated = String.format("%.2f", dollar)
+                if(txtVw_dollar != null){
+                    txtVw_dollar.text = "Dollar agora -\n$formated"
+                }
+
+            }
+
+        })
     }
 
 

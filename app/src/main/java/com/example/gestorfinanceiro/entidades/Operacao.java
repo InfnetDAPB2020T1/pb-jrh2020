@@ -15,15 +15,17 @@ public class Operacao implements Serializable {
     private Double valor;
     private String descricao;
     private Integer userOwnerId;
+    private Double cotacao;
 
 
-    public Operacao(Double valor, String descricao, Integer userOwnerId) {
+    public Operacao(Double valor, String descricao, Integer userOwnerId, Double cotacao) {
         if(descricao.length() > 60){
             throw new InvalidOperacaoException("A descrição deve ter menos de 60 caracteres");
         }
         this.valor = valor;
         this.descricao = descricao;
         this.userOwnerId = userOwnerId;
+        this.cotacao = cotacao;
     }
 
     public Double getValor() {
@@ -58,4 +60,11 @@ public class Operacao implements Serializable {
         this.userOwnerId = userOwnerId;
     }
 
+    public Double getCotacao() {
+        return cotacao;
+    }
+
+    public void setCotacao(Double cotacao) {
+        this.cotacao = cotacao;
+    }
 }

@@ -8,14 +8,18 @@ public class Operacoes implements Serializable {
     private ArrayList<Operacao> operacoes = new ArrayList<>();
 
 
-    public void adicionarOperacao(double valor, String descricao, int id) {
-        operacoes.add(new Operacao(valor, descricao, id));
+    public void adicionarOperacao(double valor, String descricao, int id, double cotacao) {
+        operacoes.add(new Operacao(valor, descricao, id, cotacao));
     }
 
     public double getTotal() {
         double total = 0;
         for (Operacao operacao : this.operacoes) {
-            total += operacao.getValor();
+            if(operacao.getCotacao() == 1){
+                total += operacao.getValor();
+            }else{
+                total += operacao.getValor() * operacao.getCotacao();
+            }
         }
         return total;
     }
