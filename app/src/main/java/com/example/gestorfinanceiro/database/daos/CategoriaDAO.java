@@ -37,8 +37,8 @@ public interface CategoriaDAO {
     @Query("SELECT * FROM categorias WHERE nome =:nome")
     Categoria selectByName(String nome);
 
-    @Query("SELECT * FROM categorias WHERE status =:status AND mes=:mes")
-    List<Categoria> selectAllByStatusAndMonth(Boolean status, int mes);
+    @Query("SELECT * FROM categorias WHERE status =:status AND mes=:mes AND userOwnerId =:userOwnerid")
+    List<Categoria> selectAllByStatusAndMonth(Boolean status, int mes, String userOwnerid);
 
 
 }

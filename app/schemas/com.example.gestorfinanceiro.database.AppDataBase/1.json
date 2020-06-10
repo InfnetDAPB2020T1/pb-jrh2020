@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a961cecd45b479146ab4fc182da4f975",
+    "identityHash": "79187473c22b5a5f52590f8a124982c4",
     "entities": [
       {
         "tableName": "operacoes",
@@ -50,7 +50,7 @@
       },
       {
         "tableName": "categorias",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` TEXT, `status` INTEGER, `mes` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `nome` TEXT, `status` INTEGER, `mes` INTEGER, `userOwnerId` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -75,6 +75,12 @@
             "columnName": "mes",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "userOwnerId",
+            "columnName": "userOwnerId",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -90,7 +96,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a961cecd45b479146ab4fc182da4f975')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '79187473c22b5a5f52590f8a124982c4')"
     ]
   }
 }

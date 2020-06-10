@@ -15,6 +15,7 @@ import com.example.gestorfinanceiro.categorias.tasks.AddCategoriaTask
 import com.example.gestorfinanceiro.categorias.viewmodels.CategoriaViewModel
 import com.example.gestorfinanceiro.database.DbBuilder
 import com.example.gestorfinanceiro.entidades.Categoria
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_add_categoria.*
 import java.lang.Exception
 
@@ -55,7 +56,8 @@ class AddCategoriaFragment : Fragment() {
         }
 
         btn_AddCategoria.setOnClickListener {
-            AddCategoriaTask(requireContext(), edTxt_categoria.text.toString(), categoriaViewModel.navegador, mes_nav).execute()
+            val user = FirebaseAuth.getInstance().currentUser!!.email!!
+            AddCategoriaTask(requireContext(), edTxt_categoria.text.toString(), categoriaViewModel.navegador, mes_nav, user).execute()
             findNavController().navigate(R.id.exibirCategoriaFragment)
         }
     }

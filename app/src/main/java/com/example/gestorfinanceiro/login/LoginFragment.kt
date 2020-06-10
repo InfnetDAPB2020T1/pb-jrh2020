@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.example.gestorfinanceiro.CategoriasActivity
 
 import com.example.gestorfinanceiro.R
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -26,6 +28,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        MobileAds.initialize(requireContext(), getString(R.string.admob_app_id))
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
        btn_Entrar.setOnClickListener {
             login()

@@ -15,6 +15,7 @@ import com.example.gestorfinanceiro.api.CotacaoService
 import com.example.gestorfinanceiro.categorias.tasks.MakeRecyclerViewTask
 import com.example.gestorfinanceiro.categorias.viewmodels.CategoriaViewModel
 import com.example.gestorfinanceiro.entidades.Cotacao
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_exibir_categoria.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,7 +45,7 @@ class ExibirCategoriaFragment : Fragment() {
         }
         getMoeda()
         var mes_nav = categoriaViewModel.mes
-        MakeRecyclerViewTask(requireContext(), rcVw_Categoria, categoriaViewModel.navegador, mes_nav).execute()
+        MakeRecyclerViewTask(requireContext(), rcVw_Categoria, categoriaViewModel.navegador, mes_nav, FirebaseAuth.getInstance().currentUser!!.email!!).execute()
         if (categoriaViewModel.navegador == true){
             btn_gg.text = "Ganhos ${categoriaViewModel.getMesNome(mes_nav)}"
         }else{

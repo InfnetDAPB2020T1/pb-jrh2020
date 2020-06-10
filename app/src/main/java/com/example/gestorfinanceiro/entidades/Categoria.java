@@ -17,9 +17,10 @@ public class Categoria implements Serializable {
     private Operacoes operacoes = new Operacoes();
     private Boolean status;
     private Integer mes;
+    private String userOwnerId;
 
 
-    public Categoria(String nome, Boolean status, Integer mes) {
+    public Categoria(String nome, Boolean status, Integer mes, String userOwnerId) {
         if(nome.length() > 15){
             throw new InvalidCategoriaException("Limite de 15 caracteres excedido");
         }
@@ -29,6 +30,7 @@ public class Categoria implements Serializable {
         this.nome = nome;
         this.status = status;
         this.mes = mes;
+        this.userOwnerId = userOwnerId;
     }
 
     public Integer getId() {
@@ -65,5 +67,13 @@ public class Categoria implements Serializable {
 
     public void setMes(Integer mes) {
         this.mes = mes;
+    }
+
+    public String getUserOwnerId() {
+        return userOwnerId;
+    }
+
+    public void setUserOwnerId(String userOwnerId) {
+        this.userOwnerId = userOwnerId;
     }
 }
