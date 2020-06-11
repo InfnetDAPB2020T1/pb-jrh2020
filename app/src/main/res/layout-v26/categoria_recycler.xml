@@ -13,7 +13,7 @@
         android:layout_weight="1"
         android:paddingStart="5dp"
         android:paddingEnd="0dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:text="@string/id"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textIsSelectable="true" />
@@ -23,7 +23,8 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_weight="1"
+        android:iconTint="@color/colorPrimaryDark"
         android:src="@drawable/ic_detalhes_oper"
-        tools:targetApi="o" />
+       />
 
 </LinearLayout>

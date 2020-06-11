@@ -12,10 +12,6 @@
         android:icon="@drawable/add_conta"
      />
 
-    <item
-        android:id="@+id/senha_dest"
-        android:title="@string/fragment_esqueci"
-        android:icon="@drawable/esque_sen"
-     />
+
 
 </menu>

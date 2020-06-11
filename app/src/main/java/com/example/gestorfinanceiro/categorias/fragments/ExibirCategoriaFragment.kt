@@ -87,12 +87,10 @@ class ExibirCategoriaFragment : Fragment() {
         btn_gg.setOnClickListener {
             if (categoriaViewModel.navegador == true){
                 categoriaViewModel.navegador = false
-                Toast.makeText(requireContext(), categoriaViewModel.navegador.toString(), Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.exibirCategoriaFragment)
 
             }else{
                 categoriaViewModel.navegador = true
-                Toast.makeText(requireContext(), categoriaViewModel.navegador.toString(), Toast.LENGTH_LONG).show()
                 findNavController().navigate(R.id.exibirCategoriaFragment)
             }
         }

@@ -15,9 +15,5 @@
         android:name="com.example.gestorfinanceiro.fragments.CriarContaFragment"
         android:label="fragment_criar_conta"
         tools:layout="@layout/fragment_criar_conta" />
-    <fragment
-        android:id="@+id/senha_dest"
-        android:name="com.example.gestorfinanceiro.fragments.RecuperarSenhaFragment"
-        android:label="fragment_recuperar_senha"
-        tools:layout="@layout/fragment_recuperar_senha" />
+
 </navigation>

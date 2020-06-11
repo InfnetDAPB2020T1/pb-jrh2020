@@ -10,6 +10,7 @@
 
     <TextView
         android:id="@+id/txtVw_Titulo"
+        style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -18,6 +19,7 @@
 
     <TextView
         android:id="@+id/txtVw_Texto"
+        style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -26,6 +28,7 @@
 
     <TextView
         android:id="@+id/txtVw_cotacao"
+        style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

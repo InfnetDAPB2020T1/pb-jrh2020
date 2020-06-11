@@ -28,18 +28,17 @@ class CriarContaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btn_Crie_Conta.setOnClickListener {
-            if(edTxt_Usuario.text.toString().isBlank() || edTxt_Senha.text.toString().isBlank()
-                || edTxt_CPF.text.toString().isBlank()){
+            if(edTxt_Usuario.text.toString().isBlank() || edTxt_Senha.text.toString().isBlank()){
                 Toast.makeText(activity?.baseContext, "Preencha todos campos!", Toast.LENGTH_LONG).show()
             }
             else{
                 try{
                     register().addOnSuccessListener {
                         if(it != null){
-                            Toast.makeText(requireContext(), "Firebase sucess", Toast.LENGTH_LONG).show()
+                            Toast.makeText(requireContext(), "Conta registrada com  sucesso.", Toast.LENGTH_LONG).show()
                         }
                         else{
-                            Toast.makeText(requireContext(), "Firebase null", Toast.LENGTH_LONG).show()
+                            Toast.makeText(requireContext(), "Erro.", Toast.LENGTH_LONG).show()
 
                         }
                     }.addOnFailureListener{

@@ -17,7 +17,6 @@ class CategoriaAdapter(val categorias : MutableList<Categoria>, val context:Cont
 
         val name = view.txtVw_ctg_name
         val operacoes = view.txtVw_ctg_operacoes
-        val edit = view.txtVw_ctg_edit
 
     }
 

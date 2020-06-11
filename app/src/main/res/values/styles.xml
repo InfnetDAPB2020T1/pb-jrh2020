@@ -8,11 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- tela login -->
     <style name="ButtonStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:background">@color/colorPrimary</item>
     </style>
+
     <style name="ButtonStyle2">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:layout_width">0dp</item>
@@ -22,9 +24,12 @@
     <style name="MenuStyle">
         <item name="android:background">@color/colorGrey</item>
     </style>
+
+    <!-- tela login -->
     <style name="AppStyle">
         <item name="android:background">@color/colorGrey</item>
     </style>
+
     <style name="TextStyle">
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textSize">20sp</item>

@@ -30,7 +30,7 @@
             android:id="@+id/edTxt_Usuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="220dp"
             android:ems="10"
             android:hint="@string/usuario"
             android:inputType="textPersonName"
@@ -48,22 +48,9 @@
             android:hint="@string/senha"
             android:inputType="numberPassword"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_Usuario" />
-
-        <EditText
-            android:id="@+id/edTxt_CPF"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:hint="@string/cpf"
-            android:inputType="number"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/edTxt_Senha" />
 
         <Button
             android:id="@+id/btn_Crie_Conta"
@@ -72,9 +59,9 @@
             android:layout_marginTop="20dp"
             android:text="@string/button_criar_conta"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/edTxt_CPF" />
+            app:layout_constraintTop_toBottomOf="@+id/edTxt_Senha" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
