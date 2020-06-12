@@ -35,8 +35,8 @@
 
     <ImageView
         android:id="@+id/image_principal"
-        android:layout_width="193dp"
-        android:layout_height="172dp"
+        android:layout_width="190dp"
+        android:layout_height="123dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -47,8 +47,8 @@
         android:id="@+id/btn_navegador"
         style="@style/MenuNavegacao"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.581"
         app:layout_constraintStart_toStartOf="@+id/guideline"

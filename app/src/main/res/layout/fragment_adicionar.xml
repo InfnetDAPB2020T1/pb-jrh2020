@@ -14,7 +14,7 @@
             android:id="@+id/edTxt_Descricao"
             android:layout_width="207dp"
             android:layout_height="47dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="@string/edTxt_descricao"
             android:inputType="textPersonName"
@@ -26,7 +26,7 @@
             android:id="@+id/edTxt_Valor"
             android:layout_width="205dp"
             android:layout_height="44dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="@string/edTxt_valor"
             android:inputType="number"
@@ -38,20 +38,18 @@
         <Button
             android:id="@+id/btn_Add"
             style="@style/ButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_width="111dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="184dp"
             android:text="@string/btn_adicionar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/edTxt_Cotacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Cotação"
@@ -64,7 +62,7 @@
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_Cotacao">

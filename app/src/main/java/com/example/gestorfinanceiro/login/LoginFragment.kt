@@ -47,6 +47,7 @@ class LoginFragment : Fragment() {
                         val intent = Intent(activity?.baseContext, CategoriasActivity::class.java)
                         intent.putExtra("usuario", edTxt_Usuario.text.toString())
                         startActivity(intent)
+
                         Toast.makeText(requireContext(), "Logado " + user!!.email, Toast.LENGTH_LONG).show()
                     }else{
                         Toast.makeText(requireContext(), "Deu null!", Toast.LENGTH_LONG).show()

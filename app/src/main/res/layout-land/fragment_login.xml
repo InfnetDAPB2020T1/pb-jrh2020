@@ -29,7 +29,7 @@
             android:id="@+id/edTxt_Usuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="115dp"
             android:ems="10"
             android:hint="@string/usuario"
             android:inputType="textPersonName"
@@ -42,7 +42,7 @@
             android:id="@+id/edTxt_Senha"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="2dp"
             android:ems="10"
             android:hint="@string/senha"
             android:inputType="numberPassword"
@@ -55,13 +55,28 @@
             android:id="@+id/btn_Entrar"
             style="@style/ButtonStyle"
             android:layout_width="718dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="35dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="0dp"
             android:text="@string/button_entrar"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/edTxt_Senha" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Entrar">
+        </com.google.android.gms.ads.AdView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
