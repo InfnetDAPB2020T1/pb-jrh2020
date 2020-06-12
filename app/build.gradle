@@ -18,7 +18,7 @@ android {
         jvmTarget = "1.8"
     }
     defaultConfig {
-        applicationId "com.example.gestorfinanceiro"
+        applicationId "com.futuretecnologia.gestorfinanceiro"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

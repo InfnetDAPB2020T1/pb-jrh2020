@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/TextStyle"
-    tools:context=".LoginActivity">
+    tools:context="com.futuretecnologia.gestorfinanceiro.LoginActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

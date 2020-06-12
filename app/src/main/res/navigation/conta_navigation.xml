@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/login_dest"
-        android:name="com.example.gestorfinanceiro.fragments.LoginFragment"
+        android:name="com.futuretecnologia.gestorfinanceiro.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/registro_dest"
-        android:name="com.example.gestorfinanceiro.fragments.CriarContaFragment"
+        android:name="com.futuretecnologia.gestorfinanceiro.fragments.CriarContaFragment"
         android:label="fragment_criar_conta"
         tools:layout="@layout/fragment_criar_conta" />
 

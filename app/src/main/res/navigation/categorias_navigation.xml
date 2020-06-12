@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/exibirCategoriaFragment"
-        android:name="com.example.gestorfinanceiro.categorias.fragments.ExibirCategoriaFragment"
+        android:name="com.futuretecnologia.gestorfinanceiro.categorias.fragments.ExibirCategoriaFragment"
         android:label="fragment_exibir_categoria"
         tools:layout="@layout/fragment_exibir_categoria" />
     <fragment
         android:id="@+id/addCategoriaFragment"
-        android:name="com.example.gestorfinanceiro.categorias.fragments.AddCategoriaFragment"
+        android:name="com.futuretecnologia.gestorfinanceiro.categorias.fragments.AddCategoriaFragment"
         android:label="fragment_add_categoria"
         tools:layout="@layout/fragment_add_categoria" />
 </navigation>
